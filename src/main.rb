@@ -11,7 +11,7 @@ require_relative "Player.rb"
 
 game = Game.new(STDIN.read)
 results = {}
-8.times do 
+8.times do
 	# Process next turn
 	game.next_turn!()
 
