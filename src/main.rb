@@ -31,7 +31,6 @@ results = {}
 end
 
 max_length_email = results.keys.map {|email| email.length}.max
-puts max_length_email
 results.each do |email, scores|
 	puts "#{email.ljust(max_length_email+1)} #{scores.map{|score| "#{score}".ljust(4)}.join("")}"
 end
