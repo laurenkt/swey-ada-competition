@@ -15,11 +15,10 @@ results = {}
 	# Process next turn
 	game.next_turn!()
 
+	# Process into results list
 	game.players.each do |player|
 		if results[player.email]
-			if results[player.email].last == "Dead"
-				next
-			end
+			next if results[player.email].last == "Dead"
 			results[player.email] += [player.score]
 		else
 			results[player.email] = [player.score]

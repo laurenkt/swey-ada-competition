@@ -58,8 +58,13 @@ class Game
 	end
 
 	def next_turn!()
+		puts "# Turn #{@turn}"
+
 		north_south = count_move_in_turn(@turn, "N") - count_move_in_turn(@turn, "S")
 		west_east   = count_move_in_turn(@turn, "W") - count_move_in_turn(@turn, "E")
+
+		puts "North/south board offset: #{north_south}"
+		puts "West/east board offset: #{west_east}"
 
 		# NS board movements first
 		if (north_south > 0)
