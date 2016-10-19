@@ -68,6 +68,8 @@ class Game
 			move_board_down!()
 		end
 
+		resolve_movement!
+
 		# Then WE board movements
 		if (west_east > 0)
 			move_board_west!()
