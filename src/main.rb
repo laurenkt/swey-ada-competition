@@ -8,16 +8,8 @@ require_relative "Player.rb"
 # S Shift board south
 # E Shift board east
 # W Shift board west
-input = <<-eos
-lt696;NLRNSEWF
-ab123;FESWNESF
-ac987;LLLLLLLF
-ad987;FLLLLLLF
-af987;RFLLLLLF
-ac98g;RFFLLLLF
-eos
 
-game = Game.new(input)
+game = Game.new(STDIN.read)
 results = {}
 8.times do 
 	# Process next turn
