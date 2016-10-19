@@ -68,16 +68,16 @@ class Game
 
 		# NS board movements first
 		if (north_south > 0)
-			north_south.times { move_board_up!() }
+			move_board_up!()
 		elsif (north_south < 0)
-			north_south.times { move_board_down!() }
+			move_board_down!()
 		end
 
 		# Then WE board movements
 		if (west_east > 0)
-			west_east.times { move_board_west!() }
+			move_board_west!()
 		elsif (west_east < 0)
-			west_east.times { move_board_east!() }
+			move_board_east!()
 		end
 
 		@players.select{:is_alive?}.each do |player|
