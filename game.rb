@@ -91,6 +91,7 @@ class Game
 	end
 
 	attr_accessor :players
+	attr_accessor :turn
 
 	def count_move_in_turn(turn, movechar)
 		@players.select { |player| player.is_alive? && player.move_for_turn(turn) == movechar }.count
@@ -132,7 +133,7 @@ class Game
 
 	def next_turn!()
 		north_south = count_move_in_turn(@turn, "N") - count_move_in_turn(@turn, "S")
-		west_east = count_move_in_turn(@turn, "W") - count_move_in_turn(@turn, "E")
+		west_east   = count_move_in_turn(@turn, "W") - count_move_in_turn(@turn, "E")
 
 		# NS board movements first
 		if (north_south > 0)
@@ -150,22 +151,16 @@ class Game
 
 		@players.select{:is_alive?}.each do |player|
 			case player.move_for_turn(@turn)
-			when "L"
-				player.rotate_left!
-			when "R"
-				player.rotate_right!
+			when "L" then player.rotate_left!
+			when "R" then player.rotate_right!
 			when "F"
 				2.times do
 					if player.is_alive?
 						case player.facing
-							when "N"
-								player.move_north!
-							when "E"
-								player.move_east!
-							when "S"
-								player.move_south!
-							when "W"
-								player.move_west!
+							when "N" then player.move_north!
+							when "E" then player.move_east!
+							when "S" then player.move_south!
+							when "W" then player.move_west!
 						end
 						resolve_movement!
 					end
@@ -196,10 +191,27 @@ ac98g;RFFLLLLF
 eos
 
 game = Game.new(input)
-8.times { game.next_turn!() }
+results = {}
+8.times do 
+	# Process next turn
+	game.next_turn!()
 
-results = game.players
-results.sort_by! { |player| player.score }
-results.each do |player|
-	puts "#{player.email}: #{player.score}"
+	game.players.each do |player|
+		if results[player.email]
+			if results[player.email].last == "Dead"
+				next
+			end
+			results[player.email] += [player.score]
+		else
+			results[player.email] = [player.score]
+		end
+
+		if !player.is_alive?
+			results[player.email] += ["Dead"]
+		end
+	end
+end
+
+results.each do |email, scores|
+	puts "#{email}: #{scores.join(', ')}"
 end
