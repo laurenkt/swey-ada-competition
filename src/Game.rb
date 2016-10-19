@@ -12,7 +12,7 @@ class Game
 		@start = [3, 3]
 		@turn = 0
 
-		players_and_moves = entries.split("\n").map { |moveset| moveset.split(";") }
+		players_and_moves = entries.split("\n").map { |moveset| moveset.split(",") }
 		@players = players_and_moves.map { |player_data| Player.new(player_data[0], @start, player_data[1]) }
 	end
 
