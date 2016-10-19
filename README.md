@@ -3,8 +3,8 @@ Ada Lovelace Day Competition
 
 Tool to process the results for our Ada Lovelace Day Competition, which was a punchcard-based pseudo-programming game.
 
-*Author:* Lauren Tomasello <lt696@york.ac.uk>, Supporting Women in Engineering at York
-*Licence:* Apache 2.0
+- **Author:** Lauren Tomasello <lt696@york.ac.uk>, Supporting Women in Engineering at York
+- **Licence:** Apache 2.0
 
 Usage
 -----
