@@ -75,6 +75,8 @@ class Game
 			move_board_east!()
 		end
 
+		resolve_movement!
+
 		@players.select{:is_alive?}.each do |player|
 			case player.move_for_turn(@turn)
 			when "L" then player.rotate_left!
