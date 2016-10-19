@@ -1,7 +1,7 @@
 Ada Lovelace Competition
 ========================
 
-	ruby game.rb
+	ruby src/main.rb
 
 Data entry guide
 ----------------
