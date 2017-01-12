@@ -32,3 +32,17 @@ So, for example, if you have two entries, the first one with the email of `ab123
 ab123,LRLRNSNS
 xy456,FFFFFFFF
 ```
+
+Competition rules
+-----------------
+- Everyone’s moves run in parallel
+- You get 8 moves
+	Move forward
+	Rotate left
+	Rotate right
+	Shift board left
+	Shift board right
+	Shift board up
+	Shift board down
+- If you fall off, or down a pit, you can’t move anymore
+- Person who collects the most food wins
